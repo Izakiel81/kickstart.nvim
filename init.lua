@@ -47,6 +47,7 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open vim explorer' })
 
 -- Your custom keymaps
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]], { desc = '[Y]ank to clipboard' })
@@ -202,8 +203,25 @@ require('lazy').setup({
       capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
 
       local servers = {
-        ts_ls = {},
+        vtsls = {
+          settings = {
+            vtsls = {
+              tsserver = {
+                globalPlugins = {
+                  {
+                    name = '@vue/typescript-plugin',
+                    location = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+                    languages = { 'vue' },
+                    configNamespace = 'typescript',
+                  },
+                },
+              },
+            },
+          },
+          filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue' },
+        },
         pyright = {},
+        eslint = {},
         html = {},
         cssls = {},
         dockerls = {},
@@ -218,7 +236,13 @@ require('lazy').setup({
             },
           },
         },
-        vue_ls = {},
+        vue_ls = {
+          settings = {
+            vue = {
+              hybridMode = false,
+            },
+          },
+        },
         lua_ls = {
           settings = {
             Lua = {
@@ -499,32 +523,6 @@ require('lazy').setup({
         end,
       })
     end,
-  },
-  {
-    'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v3.x',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'nvim-tree/nvim-web-devicons',
-      'MunifTanjim/nui.nvim',
-    },
-    cmd = 'Neotree',
-    keys = {
-      { '<leader>e', '<cmd>Neotree toggle right<cr>', desc = 'Toggle [E]xplorer' },
-    },
-    opts = {
-      window = {
-        position = 'right',
-        width = 40,
-      },
-      filesystem = {
-        follow_current_file = { enabled = true },
-        filtered_items = {
-          hide_dotfiles = false,
-          hide_gitignored = false,
-        },
-      },
-    },
   },
 }, {
   ui = {
