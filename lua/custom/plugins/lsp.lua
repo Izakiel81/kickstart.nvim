@@ -63,7 +63,7 @@ return {
         },
         filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue' },
       },
-      
+
       -- CHANGED: Use volar instead of vue_ls (vue_ls is deprecated)
       volar = {
         init_options = {
@@ -72,7 +72,7 @@ return {
           },
         },
       },
-      
+
       pyright = {},
       eslint = {},
       html = {},
@@ -133,4 +133,4 @@ return {
       },
     }
   end,
-},
+}
