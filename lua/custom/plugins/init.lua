@@ -11,11 +11,21 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require('lazy').setup({
-  -- Import kickstart plugins
-  { import = 'kickstart.plugins' },
 
-  -- Import your custom plugins
-  { import = 'custom.plugins' },
+  { import = 'kickstart.plugins' },
+  require 'custom.plugins.lsp',
+  require 'custom.plugins.autocmp',
+  require 'custom.plugins.telescope',
+  require 'custom.plugins.treesitter',
+  require 'custom.plugins.whichkey',
+  require 'custom.plugins.tokyonight',
+  require 'custom.plugins.noice',
+  require 'custom.plugins.formatter',
+  require 'custom.plugins.fugitive',
+  require 'custom.plugins.harpoon',
+  require 'custom.plugins.indentscope',
+  require 'custom.plugins.blanckline',
+  require 'custom.plugins.mininvim',
   'tpope/vim-sleuth',
 
   { 'numToStr/Comment.nvim', opts = {} },
@@ -39,7 +49,16 @@ require('lazy').setup({
       cmd = '⌘',
       config = '🛠',
       event = '📅',
+      ft = '📂',
+      init = '⚙',
+      keys = '🗝',
       plugin = '🔌',
+      runtime = '💻',
+      require = '🌙',
+      source = '📄',
+      start = '🚀',
+      task = '📌',
+      lazy = '💤 ',
     },
   },
 })

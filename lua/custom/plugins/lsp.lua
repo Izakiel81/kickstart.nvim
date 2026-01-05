@@ -42,8 +42,7 @@ return {
 
     -- CHANGED: Use nvim-cmp capabilities instead of blink.cmp
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
+    capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
     local servers = {
       -- TypeScript with Vue support (vtsls is fine, it's a better ts server)
       vtsls = {
@@ -65,7 +64,7 @@ return {
       },
 
       -- CHANGED: Use volar instead of vue_ls (vue_ls is deprecated)
-      volar = {
+      vue_ls = {
         init_options = {
           vue = {
             hybridMode = false, -- Set to true if using vtsls
