@@ -13,7 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
 
   { import = 'kickstart.plugins' },
-  require 'custom.plugins.lsp',
   require 'custom.plugins.autocmp',
   require 'custom.plugins.telescope',
   require 'custom.plugins.treesitter',

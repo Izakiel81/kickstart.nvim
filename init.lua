@@ -10,6 +10,8 @@ require 'core.autocmds'
 
 require 'custom.plugins'
 
+require 'custom.lsp'
+
 -- Diagnostics config (after plugins are loaded)
 vim.diagnostic.config {
   virtual_text = true,
