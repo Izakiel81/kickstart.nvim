@@ -7,10 +7,11 @@ vim.g.have_nerd_font = true
 require 'core.options'
 require 'core.keymaps'
 require 'core.autocmds'
+require 'core.lsp'
+
 
 require 'custom.plugins'
 
-require 'custom.lsp'
 
 -- Diagnostics config (after plugins are loaded)
 vim.diagnostic.config {
