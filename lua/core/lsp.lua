@@ -97,6 +97,31 @@ vim.lsp.config['vue_ls'] = {
   end,
 }
 
+-- Python (pyright)
+vim.lsp.config['pyright'] = {
+  cmd = { 'pyright-langserver', '--stdio' },
+  filetypes = { 'python' },
+  root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', '.git' },
+  capabilities = capabilities,
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = true,
+        diagnosticMode = 'openFilesOnly',
+      },
+    },
+  },
+}
+
+-- C# (csharp-language-server / csharp_ls)
+vim.lsp.config['csharp_ls'] = {
+  cmd = { 'csharp-ls' },
+  filetypes = { 'cs' },
+  root_markers = { '*.sln', '*.csproj', '.git' },
+  capabilities = capabilities,
+}
+
 -- Basic Servers
 local servers = { 'lua_ls', 'html', 'cssls', 'jsonls' }
 for _, server in ipairs(servers) do
@@ -107,3 +132,5 @@ end
 -- Enable the complex ones
 vim.lsp.enable 'ts_ls'
 vim.lsp.enable 'vue_ls'
+vim.lsp.enable 'pyright'
+vim.lsp.enable 'csharp_ls'
