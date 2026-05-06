@@ -26,6 +26,7 @@ require('lazy').setup({
   require 'custom.plugins.blanckline',
   require 'custom.plugins.mininvim',
   require 'custom.plugins.mason',
+  require 'custom.plugins.rest',
   'tpope/vim-sleuth',
 
   { 'numToStr/Comment.nvim', opts = {} },
